@@ -1,4 +1,4 @@
-# Vue-Lazyload
+# Vue-awesome-timeline
 
 [![Build Status](https://img.shields.io/circleci/project/hilongjw/vue-lazyload/master.svg?style=flat-square)](https://circleci.com/gh/hilongjw/vue-lazyload)
 [![npm version](https://img.shields.io/npm/v/vue-lazyload.svg?style=flat-square)](http://badge.fury.io/js/vue-lazyload)
@@ -7,7 +7,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![CDNJS version](https://img.shields.io/cdnjs/v/vue-lazyload.svg)](https://cdnjs.com/libraries/vue-lazyload)
 
-Vue module for lazyloading images in your applications. Some of goals of this project worth noting include:
+Vue module for time-line in your vue.js applications. Some of goals of this project worth noting include:
 
 * Be lightweight, powerful and easy to use
 * Work on any image type
@@ -36,7 +36,7 @@ Vue module for lazyloading images in your applications. Some of goals of this pr
 
 # Demo
 
-[___Demo___](http://hilongjw.github.io/vue-lazyload/)
+[___Demo___]()
 
 # Requirements
 
@@ -55,12 +55,12 @@ $ npm install vue-lazyload -D
 
 ## CDN
 
-CDN: [https://unpkg.com/vue-lazyload/vue-lazyload.js](https://unpkg.com/vue-lazyload/vue-lazyload.js)
+CDN: [https://unpkg.com/vue-awesome-timeline/vue-awesome-timeline.js](https://unpkg.com/vue-awesome-timeline/vue-awesome-timeline.js)
 
 ```html
-<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+<script src="https://unpkg.com/vue-awesome-timeline/vue-awesome-timeline.js"></script>
 <script>
-  Vue.use(VueLazyload)
+  Vue.use(Timeline)
   ...
 </script>
 
@@ -74,12 +74,12 @@ main.js:
 
 import Vue from 'vue'
 import App from './App.vue'
-import VueLazyload from 'vue-lazyload'
+import Timeline from 'vue-awesome-timeline'
 
-Vue.use(VueLazyload)
+Vue.use(Timeline)
 
 // or with options
-Vue.use(VueLazyload, {
+Vue.use(Timeline, {
   preLoad: 1.3,
   error: 'dist/error.png',
   loading: 'dist/loading.gif',
@@ -156,7 +156,7 @@ You can configure which events you want vue-lazyload by passing in an array
 of listener names.
 
 ```javascript
-Vue.use(VueLazyload, {
+Vue.use(Timeline, {
   preLoad: 1.3,
   error: 'dist/error.png',
   loading: 'dist/loading.gif',
@@ -428,19 +428,7 @@ this.$Lazyload.$on('loaded', function (listener) {
 
 # Authors && Contributors
 
-- [hilongjw](https://github.com/hilongjw)
-- [imcvampire](https://github.com/imcvampire)
-- [darrynten](https://github.com/darrynten)
-- [biluochun](https://github.com/biluochun)
-- [whwnow](https://github.com/whwnow)
-- [Leopoldthecoder](https://github.com/Leopoldthecoder)
-- [michalbcz](https://github.com/michalbcz)
-- [blue0728](https://github.com/blue0728)
-- [JounQin](https://github.com/JounQin)
-- [llissery](https://github.com/llissery)
-- [mega667](https://github.com/mega667)
-- [RobinCK](https://github.com/RobinCK)
-- [GallenHu](https://github.com/GallenHu)
+- [flitrue](https://github.com/flitrue)
 
 # License
 
