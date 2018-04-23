@@ -49,7 +49,7 @@ Vue module for time-line in your vue.js applications. Some of goals of this proj
 
 ```bash
 
-$ npm install vue-lazyload -D
+$ npm install vue-awesome-timeline -D
 
 ```
 
@@ -60,7 +60,7 @@ CDN: [https://unpkg.com/vue-awesome-timeline/vue-awesome-timeline.js](https://un
 ```html
 <script src="https://unpkg.com/vue-awesome-timeline/vue-awesome-timeline.js"></script>
 <script>
-  Vue.use(Timeline)
+  Vue.use(VueTimeline)
   ...
 </script>
 
@@ -74,12 +74,12 @@ main.js:
 
 import Vue from 'vue'
 import App from './App.vue'
-import Timeline from 'vue-awesome-timeline'
+import VueTimeline from 'vue-awesome-timeline'
 
-Vue.use(Timeline)
+Vue.use(VueTimeline)
 
 // or with options
-Vue.use(Timeline, {
+Vue.use(VueTimeline, {
   preLoad: 1.3,
   error: 'dist/error.png',
   loading: 'dist/loading.gif',

@@ -7,29 +7,20 @@ const resolve = require('rollup-plugin-node-resolve')
 const commonjs = require('rollup-plugin-commonjs')
 const version = process.env.VERSION || require('./package.json').version
 
-const banner =
-    '/*!\n' +
-    ' * Vue-Lazyload.js v' + version + '\n' +
-    ' * (c) ' + new Date().getFullYear() + ' Awe <hilongjw@gmail.com>\n' +
-    ' * Released under the MIT License.\n' +
-    ' */\n'
-
-async function build () {
+const banner = '/*!\n * Vue-Lazyload.js v' + version + '\n * (c) ' + new Date().getFullYear() + ' Awe <hilongjw@gmail.com>\n * Released under the MIT License.\n */\n'
+async function build() {
   try {
     const bundle = await rollup.rollup({
       input: path.resolve(__dirname, 'src/index.js'),
       plugins: [
         resolve(),
         commonjs(),
-        babel({ runtimeHelpers: true }),
+        babel({runtimeHelpers: true}),
         uglify()
       ]
     })
 
-    let { code } = await bundle.generate({
-      format: 'umd',
-      name: 'VueLazyload'
-    })
+    let {code} = await bundle.generate({format: 'umd', name: 'VueTimeline'})
 
     code = rewriteVersion(code)
 
@@ -41,19 +32,19 @@ async function build () {
   }
 }
 
-function rewriteVersion (code) {
+function rewriteVersion(code) {
   return code.replace('__VUE_LAZYLOAD_VERSION__', version)
 }
 
-function getSize (code) {
+function getSize(code) {
   return (code.length / 1024).toFixed(2) + 'kb'
 }
 
-function blue (str) {
+function blue(str) {
   return '\x1b[1m\x1b[34m' + str + '\x1b[39m\x1b[22m'
 }
 
-function write (dest, code) {
+function write(dest, code) {
   return new Promise(function (resolve, reject) {
     code = banner + code
     fs.writeFile(dest, code, function (err) {
