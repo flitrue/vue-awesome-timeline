@@ -7,7 +7,7 @@ const resolve = require('rollup-plugin-node-resolve')
 const commonjs = require('rollup-plugin-commonjs')
 const version = process.env.VERSION || require('./package.json').version
 
-const banner = '/*!\n * Vue-Lazyload.js v' + version + '\n * (c) ' + new Date().getFullYear() + ' Awe <hilongjw@gmail.com>\n * Released under the MIT License.\n */\n'
+const banner = '/*!\n * vue-awesome-timeline.js v' + version + '\n * (c) ' + new Date().getFullYear() + ' Flitrue <812863096@qq.com>\n * Released under the MIT License.\n */\n'
 async function build() {
   try {
     const bundle = await rollup.rollup({
@@ -21,7 +21,7 @@ async function build() {
     })
 
     let {code} = await bundle.generate({format: 'umd', name: 'VueTimeline'})
-    
+
     code = rewriteVersion(code)
 
     await write(path.resolve(__dirname, 'vue-awesome-timeline.js'), code)

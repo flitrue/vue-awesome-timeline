@@ -1,6 +1,6 @@
-import Lazy from "./lazy";
-import LazyComponent from "./lazy-component";
-import LazyContainer from "./lazy-container";
+import Timeline from "./timeline";
+import TimelineComponent from "./timeline-component";
+import TimelineContainer from "./timeline-container";
 import { assign } from "./util";
 
 export default {
@@ -10,16 +10,16 @@ export default {
   * @param  {object} options  lazyload options
   */
     install(Vue, options = {}) {
-        const LazyClass = Lazy(Vue);
-        const lazy = new LazyClass(options);
-        const lazyContainer = new LazyContainer({ lazy });
+        const timelineClass = Timeline(Vue);
+        const lazy = new timelineClass(options);
+        const timelineContainer = new TimelineContainer({ lazy });
 
         const isVue2 = Vue.version.split(".")[0] === "2";
 
         Vue.prototype.$Lazyload = lazy;
 
         if (options.lazyComponent) {
-            Vue.component("lazy-component", LazyComponent(lazy));
+            Vue.component("timeline-component", TimelineComponent(lazy));
         }
 
         if (isVue2) {
@@ -29,10 +29,10 @@ export default {
                 componentUpdated: lazy.lazyLoadHandler.bind(lazy),
                 unbind: lazy.remove.bind(lazy)
             });
-            Vue.directive("lazy-container", {
-                bind: lazyContainer.bind.bind(lazyContainer),
-                update: lazyContainer.update.bind(lazyContainer),
-                unbind: lazyContainer.unbind.bind(lazyContainer)
+            Vue.directive("timeline-container", {
+                bind: timelineContainer.bind.bind(timelineContainer),
+                update: timelineContainer.update.bind(timelineContainer),
+                unbind: timelineContainer.unbind.bind(timelineContainer)
             });
         } else {
             Vue.directive("lazy", {
@@ -57,7 +57,7 @@ export default {
 
             Vue.directive("lazy-container", {
                 update(newValue, oldValue) {
-                    lazyContainer.update(
+                    timelineContainer.update(
                         this.el,
                         {
                             modifiers: this.modifiers || {},
@@ -69,7 +69,7 @@ export default {
                     );
                 },
                 unbind() {
-                    lazyContainer.unbind(this.el);
+                    timelineContainer.unbind(this.el);
                 }
             });
         }
