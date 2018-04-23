@@ -21,19 +21,19 @@ async function build() {
     })
 
     let {code} = await bundle.generate({format: 'umd', name: 'VueTimeline'})
-
+    
     code = rewriteVersion(code)
 
-    await write(path.resolve(__dirname, 'vue-lazyload.js'), code)
+    await write(path.resolve(__dirname, 'vue-awesome-timeline.js'), code)
 
-    console.log('Vue-Lazyload.js v' + version + ' builded')
+    console.log('vue-awesome-timeline.js v' + version + ' build success')
   } catch (e) {
     console.log(e)
   }
 }
 
 function rewriteVersion(code) {
-  return code.replace('__VUE_LAZYLOAD_VERSION__', version)
+  return code.replace('__VUE_AWESOME_TIMELINE_VERSION__', version)
 }
 
 function getSize(code) {
